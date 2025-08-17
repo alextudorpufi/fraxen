@@ -79,6 +79,45 @@ section {
     margin: auto;
 }
 
+.about-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 equal boxes */
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.about-box {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 20px;
+    border-radius: 12px;
+    text-align: left;
+    transition: transform 0.3s, background 0.3s;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+}
+
+.about-box:hover {
+    transform: translateY(-5px);
+    background: rgba(107, 92, 246, 0.15); /* subtle indigo tint */
+}
+
+.about-box h2 {
+    color: #9333ea; /* your bluish-purple */
+    margin-bottom: 10px;
+}
+
+.about-box p {
+    font-size: 0.95em;
+    line-height: 1.5em;
+    color: #ddd;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 900px) {
+    .about-grid {
+        grid-template-columns: 1fr; /* stack vertically */
+    }
+}
+
 h2 {
     color: #a855f7;
     margin-bottom: 15px;
