@@ -1,0 +1,120 @@
+body {
+    margin: 0;
+    font-family: 'Montserrat', sans-serif;
+    background-color: #1a1124;
+    color: white;
+    scroll-behavior: smooth;
+}
+
+header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: rgba(26, 17, 36, 0.95);
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1000;
+}
+
+.logo {
+    font-size: 1.5em;
+    font-weight: 800;
+    color: #a855f7;
+}
+nav {
+    margin-right:40px;
+}
+nav a {
+    margin-left: 20px;
+    text-decoration: none;
+    color: white;
+    font-weight: 600;
+    transition: color 0.3s;
+}
+
+nav a:hover {
+    color: #a855f7;
+}
+
+.hero {
+    height: 100vh;
+    background: linear-gradient(rgba(26, 17, 36, 0.85), rgba(26, 17, 36, 0.85)),
+    url('images/logo.jpeg') center/cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 0 20px;
+}
+
+.hero h1 {
+    font-size: 4em;
+    color: #a855f7;
+}
+
+.hero p {
+    font-size: 1.2em;
+    margin: 15px 0;
+}
+
+.btn {
+    background: #a855f7;
+    color: white;
+    padding: 10px 25px;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 25px;
+    transition: background 0.3s;
+}
+
+.btn:hover {
+    background: #9333ea;
+}
+
+section {
+    padding: 80px 20px;
+    max-width: 900px;
+    margin: auto;
+}
+
+h2 {
+    color: #a855f7;
+    margin-bottom: 15px;
+}
+
+.coming-soon ul {
+    list-style: none;
+    padding: 0;
+}
+
+.coming-soon li {
+    font-size: 1.1em;
+    margin: 10px 0;
+}
+
+.tag {
+    background: #9333ea;
+    padding: 3px 8px;
+    border-radius: 8px;
+    font-size: 0.8em;
+    margin-left: 5px;
+}
+
+footer {
+    text-align: center;
+    padding: 20px;
+    background: #120b18;
+}
+
+.fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
