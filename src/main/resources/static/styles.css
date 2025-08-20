@@ -41,7 +41,7 @@ nav a:hover {
 .hero {
     height: 100vh;
     background: linear-gradient(rgba(26, 17, 36, 0.85), rgba(26, 17, 36, 0.85)),
-    url('images/logo.jpeg') center/cover;
+    url('images/logo_notext.jpeg') center/cover;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -81,9 +81,18 @@ section {
 
 .about-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr); /* 3 equal boxes */
+    grid-template-columns: repeat(3, 1fr);
     gap: 30px;
     margin-top: 40px;
+}
+
+.values-line {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 20px;
+    border-radius: 12px;
+    text-align: left;
+    transition: transform 0.3s, background 0.3s;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
 }
 
 .about-box {
@@ -95,13 +104,13 @@ section {
     box-shadow: 0 4px 15px rgba(0,0,0,0.3);
 }
 
-.about-box:hover {
+.about-box:hover, .values-line:hover {
     transform: translateY(-5px);
-    background: rgba(107, 92, 246, 0.15); /* subtle indigo tint */
+    background: rgba(107, 92, 246, 0.15);
 }
 
 .about-box h2 {
-    color: #9333ea; /* your bluish-purple */
+    color: #9333ea;
     margin-bottom: 10px;
 }
 
@@ -157,3 +166,5 @@ footer {
     opacity: 1;
     transform: translateY(0);
 }
+
+
