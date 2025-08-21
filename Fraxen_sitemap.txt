@@ -1,0 +1,35 @@
+@startuml
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Context.puml
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Component.puml
+
+title fraxen.eu Sitemap - Development Roadmap
+
+Person(visitor, "Website Visitor", "A person browsing the website")
+
+' Absolutely Crucial by 2 October
+System_Boundary(crucial, "Absolutely Crucial (By 2 Oct)") {
+    Container(home, "Home Page", "Landing page for fraxen.eu", "Information about fractional, statistics")
+
+    Component(about, "About", "Web Page", "Explain our value proposition")
+    Component(pricing, "Pricing / Services", "Web Page", "Details of services and pricing")
+    Component(contact, "Contact", "Web Page", "Contact form and details")
+}
+
+Rel(visitor, home, "Visits via fraxen.eu link")
+Rel(home, about, "Navigates to")
+Rel(home, pricing, "Navigates to")
+Rel(home, contact, "Navigates to")
+
+' Future Options
+System_Boundary(future, "Future Options") {
+    Component(profiles, "Fractionals Profiles", "Web Page", "Profiles of available fractional professionals")
+    Component(matching, "Business-Fractional Matching Algorithm", "Backend Service", "Suggests suitable fractional hires")
+    Component(booking, "Booking a Call", "Web Page", "Schedule a consultation or meeting")
+}
+
+Rel(visitor, profiles, "Will be able to view")
+Rel(visitor, booking, "Will be able to book a call")
+Rel(profiles, matching, "Uses for recommendations")
+
+@enduml
