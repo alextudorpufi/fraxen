@@ -81,16 +81,20 @@ nav a:hover {
    ========================== */
 .hero {
     min-height: 90vh;
-    background: linear-gradient(rgba(26, 17, 36, 0.0), rgba(26, 17, 36, 0.0)),
-    url('images/logo_backgroundless.png') center/cover no-repeat;
     display: flex;
     justify-content: center;
     align-items: center;
     text-align: center;
     padding: 0 20px;
+    background: linear-gradient(rgba(26, 17, 36, 0.0), rgba(26, 17, 36, 0.0)),
+    url('images/logo_backgroundless.png') center/80% no-repeat;
+    /* changed 'cover' to '80%' so it is a little smaller than full width */
+    background-position: center center;
 }
 
+
 .hero-content {
+    padding-top: 100px;
     max-width: 90%;
     transition: transform 0.3s ease;
 }
@@ -265,12 +269,11 @@ footer {
     }
 }
 
-
 @media (max-width: 768px) {
     .hero {
-        max-width: 100%;
-        height: 70vh; /* smaller on phones */
-        background-position: center top; /* focus on top of image */
+        height: 70vh;
+        background-size: 90%; /* slightly larger on mobile to fill space */
+        background-position: center top;
     }
 
     .hero h1 {
@@ -280,6 +283,25 @@ footer {
 
     .hero p {
         font-size: clamp(0.9rem, 3vw, 1.2rem);
+    }
+}
+
+/* Scale everything proportionally on smaller screens */
+@media (max-width: 1024px) {
+    .hero-content {
+        transform: scale(0.9); /* 90% of original size */
+    }
+}
+
+@media (max-width: 768px) {
+    .hero-content {
+        transform: scale(0.8); /* 80% on tablets/small screens */
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-content {
+        transform: scale(0.7); /* 70% on phones */
     }
 }
 
@@ -311,6 +333,16 @@ h1, h2, h3, p {
 }
 
 .hero h1 {
-    font-size: clamp(2rem, 5vw, 4rem);
+    font-size: clamp(2rem, 5vw, 4em); /* adjusts automatically */
+    padding-top: 0; /* remove extra spacing */
+}
+
+.hero p {
+    font-size: clamp(1rem, 2.5vw, 1.2em);
+}
+
+.btn {
+    padding: clamp(8px, 1.5vw, 10px) clamp(20px, 3vw, 25px);
+    font-size: clamp(0.9rem, 2vw, 1rem);
 }
 

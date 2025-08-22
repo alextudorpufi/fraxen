@@ -35,11 +35,24 @@ function initHeader() {
     const nav = document.querySelector("header nav");
 
     if (menuBtn && nav) {
+        // Toggle menu on button click
         menuBtn.addEventListener("click", () => {
             nav.classList.toggle("active");
         });
+
+        // Close menu when clicking outside
+        document.addEventListener("click", (e) => {
+            // Only if menu is open
+            if (nav.classList.contains("active")) {
+                // Check if click is outside nav and menu button
+                if (!nav.contains(e.target) && !menuBtn.contains(e.target)) {
+                    nav.classList.remove("active");
+                }
+            }
+        });
     }
 }
+
 
 // ---------------- Light/Dark Mode Toggle ---------------- //
 
