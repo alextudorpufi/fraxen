@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
     // Load fragments first
-    loadFragment("header.html", "#header", initThemeToggle);
+    loadFragment("header.html", "#header", initHeader);
     loadFragment("footer.html", "#footer");
 
     // Fade-in animations
@@ -26,13 +26,28 @@ function loadFragment(file, target, callback) {
         });
 }
 
+// ---------------- Header Init (Theme + Menu) ---------------- //
+
+function initHeader() {
+    initThemeToggle();
+
+    const menuBtn = document.querySelector(".menu-toggle");
+    const nav = document.querySelector("header nav");
+
+    if (menuBtn && nav) {
+        menuBtn.addEventListener("click", () => {
+            nav.classList.toggle("active");
+        });
+    }
+}
+
 // ---------------- Light/Dark Mode Toggle ---------------- //
 
 function initThemeToggle() {
     const toggleBtn = document.getElementById("theme-toggle");
     const body = document.body;
 
-    if (!toggleBtn) return; // safety check
+    if (!toggleBtn) return;
 
     if (localStorage.getItem("theme") === "dark") {
         body.classList.add("dark-mode");
