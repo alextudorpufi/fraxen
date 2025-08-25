@@ -88,8 +88,13 @@ nav a:hover {
     padding: 0 20px;
     background: linear-gradient(rgba(26, 17, 36, 0.0), rgba(26, 17, 36, 0.0)),
     url('images/logo_backgroundless.png') center/80% no-repeat;
-    /* changed 'cover' to '80%' so it is a little smaller than full width */
     background-position: center center;
+    flex-direction: column;
+}
+
+/* new background wrapper (hidden on desktop) */
+.hero-image {
+    display: none;
 }
 
 
@@ -279,9 +284,19 @@ footer {
 
 @media (max-width: 768px) {
     .hero {
-        height: 70vh;
-        background-size: 90%; /* slightly larger on mobile to fill space */
-        background-position: center top;
+        background: none; /* remove background from whole hero */
+    }
+
+    .hero-image {
+        display: block;
+        width: 100%;
+        height: 40vh; /* adjust to look good */
+        background: url('images/logo_fullbackgroundless.png') center/90% no-repeat;
+        background-size: contain;
+    }
+
+    .hero-content {
+        margin-top: 20px; /* spacing from image */
     }
 
     .hero h1 {
@@ -293,6 +308,27 @@ footer {
         font-size: clamp(0.9rem, 3vw, 1.2rem);
     }
 }
+
+@media (orientation: landscape) {
+    .hero {
+        background: none; /* remove background */
+        flex-direction: column; /* stack image then content */
+    }
+
+    .hero-image {
+        display: block;
+        width: 100%;
+        height: auto;
+        aspect-ratio: 16/9;   /* keep proportions */
+        background: url('images/logo_fullbackgroundless.png') center/110% no-repeat;
+        background-size: contain;
+    }
+
+    .hero-content {
+        margin-top: 20px;
+    }
+}
+
 
 /* Scale everything proportionally on smaller screens */
 @media (max-width: 1024px) {
@@ -313,26 +349,20 @@ footer {
     }
 }
 
-
-
-@media (max-width: 600px) {
-    section {
-        padding: 50px 15px;
-    }
-    .about-box, .values-line {
-        padding: 15px;
-    }
-}
-
+/* Force single-column centered layout on small screens (portrait + landscape) */
 @media (max-width: 900px) {
-    .about-grid {
-        grid-template-columns: repeat(2, 1fr);
+    .section {
+        padding: 50px 15px; /* slightly less padding */
     }
-}
-
-@media (max-width: 600px) {
     .about-grid {
-        grid-template-columns: 1fr;
+        grid-template-columns: 1fr; /* one column */
+        justify-items: center;      /* center boxes */
+    }
+
+    .about-box, .values-line {
+        width: 90%;        /* full width inside section */
+        max-width: 600px;   /* keep it readable, not too wide */
+        text-align: center; /* center text if you prefer */
     }
 }
 
