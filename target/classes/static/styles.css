@@ -129,6 +129,21 @@ nav a:hover {
     background: var(--accent-hover);
 }
 
+.icon {
+    width: 24px;
+    height: 24px;
+    margin-right: 8px;
+    vertical-align: middle;
+    filter: brightness(0) invert(1); /* keeps them white in dark mode */
+    transition: filter 0.3s;
+}
+
+/* In light mode */
+body:not(.dark-mode) .icon {
+    filter: none;
+}
+
+
 /* ==========================
    Sections
    ========================== */
@@ -153,7 +168,7 @@ section {
     background: var(--card-bg);
     padding: 20px;
     border-radius: 12px;
-    text-align: left;
+    text-align: center;
     transition: transform 0.3s, background 0.3s;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
 }
