@@ -309,7 +309,7 @@ footer {
     }
 }
 
-@media (orientation: landscape) {
+@media (max-width: 1050px) and (orientation: landscape) {
     .hero {
         background: none; /* remove background */
         flex-direction: column; /* stack image then content */
