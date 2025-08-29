@@ -487,6 +487,7 @@ h1, h2, h3, p {
 }
 
 /* In light mode */
-body:not(.dark-mode) .icon, .purpose-icon {
+body:not(.dark-mode) .icon,
+body:not(.dark-mode) .purpose-icon {
     filter: none;
 }
