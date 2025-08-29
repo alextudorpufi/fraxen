@@ -288,15 +288,11 @@ body.dark-mode .theme-toggle {
    Footer
    ========================== */
 footer {
-    display: block;       /* ensures it behaves like a full-width block */
-    width: 100%;          /* take up the entire horizontal space */
-    margin: 0;            /* remove any gaps */
-    padding: 20px;        /* optional: spacing inside footer */
     text-align: center;
+    padding: 15px;
     background: var(--footer-bg);
     color: var(--text-color);
 }
-
 
 /* ==========================
    Animations
