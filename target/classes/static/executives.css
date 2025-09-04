@@ -40,7 +40,6 @@
     justify-content: center;
     font-size: 2.5rem;
     font-weight: bold;
-    color: var(--bg-color);
 }
 
 /* Right content */
@@ -50,6 +49,7 @@
     justify-content: center;
 }
 .exec-details h2 {
+    text-align: center;
     margin: 0;
     font-size: 1.3rem;
     color: var(--text-color);
@@ -74,7 +74,7 @@
 
 /* Default (male = blue) */
 .executive-card[data-gender="male"] .exec-avatar {
-    background: #0077cc;
+    background: #0077cc  center/50% no-repeat;
 }
 .executive-card[data-gender="male"] .exec-highlight {
     border-left: 3px solid #0077cc;
@@ -82,12 +82,21 @@
 
 /* Female = purple */
 .executive-card[data-gender="female"] .exec-avatar {
-    background: #8e44ad;
+    background: #8e44ad center/50% no-repeat;
 }
 .executive-card[data-gender="female"] .exec-highlight {
     border-left: 3px solid #8e44ad;
 }
 
+.icon {
+    width: 80px;
+    height: 80px;
+    filter: brightness(0) invert(1); /* white in dark mode */
+    transition: filter 0.3s;
+}
+body:not(.dark-mode) .icon {
+    filter: none;
+}
 
 /* Responsive tweaks */
 @media (max-width: 1400px) {
