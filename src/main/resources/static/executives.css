@@ -1,0 +1,120 @@
+/* ==========================
+   Executives Grid & Cards
+   ========================== */
+
+/* Grid layout for executive cards */
+.executives-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* always 2 columns */
+    gap: 2rem;
+    padding: 2rem;
+}
+
+/* Card styling */
+.executive-card {
+    max-width: 700px;
+    background: var(--card-bg);
+    color: var(--text-color);
+    border-radius: 12px;
+    padding: 2rem;
+    display: flex;
+    flex-direction: row;
+    gap: 1.5rem;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* Subtle hover effect */
+.executive-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+}
+
+/* Profile image / avatar */
+.exec-avatar {
+    flex-shrink: 0;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: var(--bg-color);
+}
+
+/* Right content */
+.exec-details {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.exec-details h2 {
+    margin: 0;
+    font-size: 1.3rem;
+    color: var(--text-color);
+}
+.exec-details h3 {
+    margin: 0.3rem 0 1rem;
+    font-size: 1rem;
+    font-weight: normal;
+    color: var(--text-color);
+}
+.exec-details p {
+    margin: 0.3rem 0;
+    font-size: 0.95rem;
+    line-height: 1.4;
+}
+
+.exec-highlight {
+    margin-top: 1rem;
+    padding-left: 1rem;
+    border-left: 3px solid var(--accent-color);
+}
+
+/* Default (male = blue) */
+.executive-card[data-gender="male"] .exec-avatar {
+    background: #0077cc;
+}
+.executive-card[data-gender="male"] .exec-highlight {
+    border-left: 3px solid #0077cc;
+}
+
+/* Female = purple */
+.executive-card[data-gender="female"] .exec-avatar {
+    background: #8e44ad;
+}
+.executive-card[data-gender="female"] .exec-highlight {
+    border-left: 3px solid #8e44ad;
+}
+
+
+/* Responsive tweaks */
+@media (max-width: 1400px) {
+    .executives-grid {
+        grid-template-columns: 1fr; /* switch to 1 column */
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .executive-card {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+    .exec-avatar {
+        margin-bottom: 1rem;
+    }
+}
+
+@media (max-width: 1400px) and (orientation: landscape) {
+    .executive-card {
+        width: 80%;
+    }
+}
+
+@media (min-width: 700px) and (orientation: portrait) {
+    .executive-card {
+        width: 80%;
+    }
+}
