@@ -243,6 +243,74 @@ section {
     color: var(--text-color);
 }
 
+/* Founders Section */
+/* Founders grid override */
+.founders-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr)); /* Always 3 equal */
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Make boxes uniform */
+.founder-box {
+    text-align: center;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: 0; /* stops overflow */
+}
+
+
+
+.founder-photo {
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 4px solid #fff;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    margin-bottom: 15px;
+}
+@media (max-width: 900px) {
+    .founder-photo {
+        width: 140px;
+        height: 140px;
+    }
+    .founder-box h3 {
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 600px) {
+    .founder-photo {
+        width: 120px;
+        height: 120px;
+    }
+    .founder-box h3 {
+        font-size: 0.85rem;
+    }
+}
+
+#founders p {
+    font-size: 1.2rem;
+    max-width: 800px;
+    margin: 0 auto;
+    line-height: 1.6;
+    text-align: center;
+    padding-top: 20px;
+}
+.linkedin-icon {
+    width: 20px;
+    height: 20px;
+    vertical-align: middle;
+    margin-right: 8px;
+}
+
+
 /* Coming Soon List */
 .coming-soon ul {
     list-style: none;
@@ -415,7 +483,7 @@ footer {
 }
 
 /* Force single-column centered layout on small screens (portrait + landscape) */
-@media (max-width: 900px) {
+@media (max-width: 800px) {
     .section {
         padding: 50px 15px; /* slightly less padding */
     }
@@ -445,6 +513,18 @@ footer {
         text-align: center;
     }
 }
+
+/* Small screens: reduce font size for Coming Soon list and Contact section paragraph */
+@media (max-width: 480px) {
+    .coming-soon ul li {
+        font-size: 0.9em; /* smaller list items */
+    }
+
+    #contact p {
+        font-size: 0.9em; /* smaller paragraph text */
+    }
+}
+
 
 
 h1, h2, h3, p {
