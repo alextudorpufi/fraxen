@@ -189,13 +189,21 @@ nav a:hover {
     position: absolute;
     bottom: 5px;
     right: 5px;
-    width: 28px;
-    height: 28px;
+    width: 22px;
+    height: 22px;
     border-radius: 20%;
-    background: white; /* optional: circle background */
-    padding: 4px;
+    background: var(--header-bg);
+    padding: 2px;
     box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+
+    -webkit-mask: url("images/linkedin.svg") no-repeat center;
+    -webkit-mask-size: contain;
+    mask: url("images/linkedin.svg") no-repeat center;
+    mask-size: 80%;
+
+    background-color: var(--accent-color); /* only icon becomes purple */
 }
+
 
 /*===========================
    Why Fraxen Section
@@ -334,13 +342,6 @@ section {
 #founders a {
     color: var(--text-color);
 }
-.linkedin-icon {
-    width: 20px;
-    height: 20px;
-    vertical-align: middle;
-    margin-right: 8px;
-}
-
 
 /* Coming Soon List */
 .coming-soon ul {
