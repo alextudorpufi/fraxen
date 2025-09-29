@@ -5,6 +5,10 @@ set -e  # stop if something fails
 cd /home/ubuntu/fraxen || exit
 
 # Update repo
+echo ">>> Cleaning repo..."
+git reset --hard HEAD
+git clean -fd
+
 echo ">>> Pulling latest changes..."
 git pull origin main
 
