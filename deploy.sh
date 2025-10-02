@@ -1,7 +1,12 @@
 #!/bin/bash
-set -e  # stop if something fails
+set -e
 
-# Go to project directory
+# Ensure DB env vars are set (inherited from SSH session)
+: "${DB_IP:?DB_IP not set}"
+: "${DB_NAME:?DB_NAME not set}"
+: "${DB_USERNAME:?DB_USERNAME not set}"
+: "${DB_PASSWORD:?DB_PASSWORD not set}"
+
 cd /home/ubuntu/fraxen || exit
 
 # Update repo
@@ -16,10 +21,10 @@ git pull origin main
 echo ">>> Building project..."
 mvn clean package -DskipTests
 
-# Stop running app if it's already running
+# Stop old app
 echo ">>> Stopping old app..."
 pkill -f 'fraxen-0.0.1-SNAPSHOT.jar' || true
 
-# Start new app
+# Start new app with environment variables
 echo ">>> Starting new app..."
 nohup java -jar target/fraxen-0.0.1-SNAPSHOT.jar > app.log 2>&1 &
