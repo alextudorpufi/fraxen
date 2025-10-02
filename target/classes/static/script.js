@@ -15,6 +15,11 @@ document.addEventListener("DOMContentLoaded", () => {
     }, appearOptions);
 
     faders.forEach(fader => appearOnScroll.observe(fader));
+    // --- Simple tracking call ---
+    fetch("/track")
+        .catch(err => console.log("Tracker failed:", err))
+        .then(() => console.log("Tracker success"));
+
 });
 
 function loadFragment(file, target, callback) {
