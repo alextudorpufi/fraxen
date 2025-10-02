@@ -23,4 +23,10 @@ echo ">>> Stopping old app..."
 pkill -f 'fraxen-0.0.1-SNAPSHOT.jar' || true
 
 echo ">>> Starting new app..."
-nohup java -jar target/fraxen-0.0.1-SNAPSHOT.jar > app.log 2>&1 &
+nohup \
+  DB_IP="$DB_IP" \
+  DB_NAME="$DB_NAME" \
+  DB_USERNAME="$DB_USERNAME" \
+  DB_PASSWORD="$DB_PASSWORD" \
+  java -jar target/fraxen-0.0.1-SNAPSHOT.jar > app.log 2>&1 &
+
