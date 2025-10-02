@@ -18,12 +18,10 @@ jobs:
           key: ${{ secrets.VM_SSH_KEY }}
           script: |
             cd /home/ubuntu/fraxen
-            
-            # Export DB secrets as environment variables
+            # Inline export of secrets so deploy.sh sees them
             export DB_IP="${{ secrets.DB_IP }}"
             export DB_NAME="${{ secrets.DB_NAME }}"
             export DB_USERNAME="${{ secrets.DB_USERNAME }}"
             export DB_PASSWORD="${{ secrets.DB_PASSWORD }}"
-            
-            # Run your deploy script
             ./deploy.sh
+          
