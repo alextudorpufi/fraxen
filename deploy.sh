@@ -22,11 +22,11 @@ mvn clean package -DskipTests
 echo ">>> Stopping old app..."
 pkill -f 'fraxen-0.0.1-SNAPSHOT.jar' || true
 
-echo ">>> Starting new app..."
-nohup \
-  DB_IP="$DB_IP" \
-  DB_NAME="$DB_NAME" \
-  DB_USERNAME="$DB_USERNAME" \
-  DB_PASSWORD="$DB_PASSWORD" \
-  java -jar target/fraxen-0.0.1-SNAPSHOT.jar > app.log 2>&1 &
+# Give it a moment to fully stop
+sleep 2
 
+echo ">>> Starting new app..."
+# The environment variables are already exported above
+nohup java -jar target/fraxen-0.0.1-SNAPSHOT.jar > app.log 2>&1 &
+
+echo ">>> App started with PID: $!"
