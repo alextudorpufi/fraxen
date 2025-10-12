@@ -11,7 +11,4 @@ public interface ExecutiveStrengthRepository extends JpaRepository<ExecutiveStre
 
     // Find all strengths for a specific executive, ordered by display order
     List<ExecutiveStrength> findByExecutiveIdOrderByDisplayOrderAsc(Long executiveId);
-
-    // Delete all strengths for a specific executive
-    void deleteByExecutiveId(Long executiveId);
 }

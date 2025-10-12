@@ -11,7 +11,4 @@ public interface ExecutiveHighlightRepository extends JpaRepository<ExecutiveHig
 
     // Find all highlights for a specific executive, ordered by display order
     List<ExecutiveHighlight> findByExecutiveIdOrderByDisplayOrderAsc(Long executiveId);
-
-    // Delete all highlights for a specific executive
-    void deleteByExecutiveId(Long executiveId);
 }
