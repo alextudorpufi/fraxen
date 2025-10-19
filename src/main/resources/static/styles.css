@@ -388,10 +388,33 @@ body.dark-mode .theme-toggle {
    ========================== */
 footer {
     text-align: center;
-    padding: 15px;
+    padding: 20px 10px;
     background: var(--footer-bg);
     color: var(--text-color);
+    font-size: 0.9rem;
+    line-height: 1.5;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
+
+footer p {
+    margin: 5px 0;
+}
+
+.footer-info {
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+footer a {
+    color: rgba(255, 255, 255, 0.8);
+    text-decoration: none;
+}
+
+footer a:hover {
+    color: var(--accent-color);
+    text-decoration: underline;
+}
+
 
 /* ==========================
    Animations
