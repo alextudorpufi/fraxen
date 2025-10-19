@@ -9,6 +9,7 @@
     --card-bg: #f5f5f5;
     --header-bg: rgba(230, 230, 230, 0.9);
     --footer-bg: #eeeeee;
+    --footer-text: #333333;
 }
 
 body.dark-mode {
@@ -19,6 +20,7 @@ body.dark-mode {
     --card-bg: rgba(230, 230, 230, 0.05);
     --header-bg: rgba(27, 17, 39, 0.95);
     --footer-bg: #120b18;
+    --footer-text: #bbbbbb;
 }
 
 /* ==========================
@@ -402,11 +404,11 @@ footer p {
 
 .footer-info {
     font-size: 0.85rem;
-    color: rgba(255, 255, 255, 0.7);
+    color: var(--footer-text);
 }
 
 footer a {
-    color: rgba(255, 255, 255, 0.8);
+    color: var(--footer-text);
     text-decoration: none;
 }
 
