@@ -98,11 +98,11 @@ function initHeader() {
         let subject,body;
 
         if (currentTrigger === 'requestExecutive') {
-            subject = encodeURIComponent("Executive Request - Fraxen Website");
+            subject = encodeURIComponent("Sent via Fraxen Website - Executive Request");
             body = encodeURIComponent("Hello Fraxen team,\n\nI would like to request an executive consultation.\n\nMy phone number:\n");
         } else {
-            subject = encodeURIComponent("Sent via Fraxen Website");
-            body = encodeURIComponent("Hello Fraxen team,\n\nI would like to get in touch with you.\n\nBest regards,\n");
+            subject = encodeURIComponent("Sent via Fraxen Website - Contact");
+            body = encodeURIComponent("Hello Fraxen team,\n\nI would like to get in touch with you.\n\nMy phone number:\n");
         }
 
         window.location.href = `mailto:admin@fraxen.eu?subject=${subject}&body=${body}`;
