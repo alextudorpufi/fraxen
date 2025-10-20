@@ -56,34 +56,55 @@ function initHeader() {
     }
 
     // ---- Contact Modal Logic ----
+    const requestExecutiveButton = document.getElementById('requestExecutiveButton');
     const contactButton = document.getElementById('contactButton');
     const mailModal = document.getElementById('mailModal');
     const yesButton = document.getElementById('yesButton');
     const noButton = document.getElementById('noButton');
     const emailButton = document.getElementById('emailButton');
 
+    let currentTrigger = null;
+
     if (!contactButton || !mailModal) return;
 
     // Show modal
     contactButton.addEventListener('click', () => {
+        currentTrigger = 'contact';
         mailModal.style.display = 'flex';
     });
+
+    // Also show modal when clicking request executive button
+    requestExecutiveButton.addEventListener('click', () => {
+        currentTrigger = 'requestExecutive';
+        mailModal.style.display = 'flex';
+    })
+
 
     // Also show modal when clicking email button
     emailButton?.addEventListener('click', (e) => {
         e.preventDefault(); // Prevent default anchor action
+        currentTrigger = 'contact';
         mailModal.style.display = 'flex';
     });
 
     // Hide modal on No
     noButton?.addEventListener('click', () => {
+        currentTrigger=null;
         mailModal.style.display = 'none';
     });
 
     // Redirect to mail app on Yes
     yesButton?.addEventListener('click', () => {
-        const subject = encodeURIComponent("Sent via Fraxen Website");
-        const body = encodeURIComponent("Hello Fraxen team,\n \n \n");
+        let subject,body;
+
+        if (currentTrigger === 'requestExecutive') {
+            subject = encodeURIComponent("Executive Request - Fraxen Website");
+            body = encodeURIComponent("Hello Fraxen team,\n\nI would like to request an executive consultation.\n\nBest regards,\n");
+        } else {
+            subject = encodeURIComponent("Sent via Fraxen Website");
+            body = encodeURIComponent("Hello Fraxen team,\n\nI would like to get in touch with you.\n\nBest regards,\n");
+        }
+
         window.location.href = `mailto:admin@fraxen.eu?subject=${subject}&body=${body}`;
         mailModal.style.display = 'none';
     });
