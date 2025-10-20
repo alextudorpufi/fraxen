@@ -99,7 +99,7 @@ function initHeader() {
 
         if (currentTrigger === 'requestExecutive') {
             subject = encodeURIComponent("Executive Request - Fraxen Website");
-            body = encodeURIComponent("Hello Fraxen team,\n\nI would like to request an executive consultation.\n\nBest regards,\n");
+            body = encodeURIComponent("Hello Fraxen team,\n\nI would like to request an executive consultation.\n\nMy phone number:\n");
         } else {
             subject = encodeURIComponent("Sent via Fraxen Website");
             body = encodeURIComponent("Hello Fraxen team,\n\nI would like to get in touch with you.\n\nBest regards,\n");
