@@ -31,7 +31,7 @@ function loadFragment(file, target, callback) {
         });
 }
 
-// ---------------- Header Init (Theme + Menu) ---------------- //
+// ---------------- Header Init (Theme + Menu + Contact Modal) ---------------- //
 
 function initHeader() {
     initThemeToggle();
@@ -47,16 +47,54 @@ function initHeader() {
 
         // Close menu when clicking outside
         document.addEventListener("click", (e) => {
-            // Only if menu is open
-            if (nav.classList.contains("active")) {
-                // Check if click is outside nav and menu button
-                if (!nav.contains(e.target) && !menuBtn.contains(e.target)) {
-                    nav.classList.remove("active");
-                }
+            if (nav.classList.contains("active") &&
+                !nav.contains(e.target) &&
+                !menuBtn.contains(e.target)) {
+                nav.classList.remove("active");
             }
         });
     }
+
+    // ---- Contact Modal Logic ----
+    const contactButton = document.getElementById('contactButton');
+    const mailModal = document.getElementById('mailModal');
+    const yesButton = document.getElementById('yesButton');
+    const noButton = document.getElementById('noButton');
+    const emailButton = document.getElementById('emailButton');
+
+    if (!contactButton || !mailModal) return;
+
+    // Show modal
+    contactButton.addEventListener('click', () => {
+        mailModal.style.display = 'flex';
+    });
+    
+    // Also show modal when clicking email button
+    emailButton?.addEventListener('click', (e) => {
+        e.preventDefault(); // Prevent default anchor action
+        mailModal.style.display = 'flex';
+    });
+
+    // Hide modal on No
+    noButton?.addEventListener('click', () => {
+        mailModal.style.display = 'none';
+    });
+
+    // Redirect to mail app on Yes
+    yesButton?.addEventListener('click', () => {
+        const subject = encodeURIComponent("Sent via Fraxen Website");
+        const body = encodeURIComponent("Hello Fraxen team,\n \n \n");
+        window.location.href = `mailto:admin@fraxen.eu?subject=${subject}&body=${body}`;
+        mailModal.style.display = 'none';
+    });
+
+    // Close modal if clicking outside
+    window.addEventListener('click', (e) => {
+        if (e.target === mailModal) mailModal.style.display = 'none';
+    });
+
 }
+
 
 
 // ---------------- Light/Dark Mode Toggle ---------------- //
