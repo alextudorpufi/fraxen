@@ -68,7 +68,7 @@ function initHeader() {
     contactButton.addEventListener('click', () => {
         mailModal.style.display = 'flex';
     });
-    
+
     // Also show modal when clicking email button
     emailButton?.addEventListener('click', (e) => {
         e.preventDefault(); // Prevent default anchor action
