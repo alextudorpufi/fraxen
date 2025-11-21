@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta property="og:image" th:content="@{/images/logo.jpeg}">
+    <title th:text="#{title.fraxen}">Fraxen - Fractional Solutions</title>
+
+    <link rel="stylesheet" th:href="@{/styles.css}">
+    <link rel="stylesheet" th:href="@{/contact.css}">
+    <link rel="icon" th:href="@{/images/logo.jpeg}" type="image/x-icon">
+</head>
+
+<body>
+
+<!--header-->
+<div th:replace="~{fragments/header :: header}"></div>
+
+<!-- Hero Section -->
+<section class="hero">
+    <div class="hero-image"></div>
+    <div class="hero-content">
+        <h1 th:text="#{hero.title}">Fraxen</h1>
+        <p><strong th:text="#{hero.subtitle}">Unlocking Executive Power, On Demand</strong></p>
+        <a href="#purpose" class="btn" th:text="#{button.learnmore}">Learn More</a>
+    </div>
+</section>
+
+<!-- Founders Section -->
+<section id="founders" class="fade-in">
+    <h2 style="font-size:2rem; margin:0"><strong th:text="#{founders.title}">Founders</strong></h2><br>
+    <div class="about-grid founders-grid">
+
+        <!-- Founder 1 -->
+        <div class="about-box founder-box">
+            <div class="founder-photo-wrapper">
+                <a href="https://www.linkedin.com/in/theodor-alexandrescu-9a9549140/" target="_blank">
+                    <img th:src="@{/images/TheodorAlexandrescu.png}" alt="Theodor Alexandrescu" class="founder-photo">
+                    <a class="linkedin-icon"></a>
+                </a>
+            </div>
+            <h3><a>Theodor Alexandrescu</a></h3>
+        </div>
+
+        <!-- Founder 2 -->
+        <div class="about-box founder-box">
+            <div class="founder-photo-wrapper">
+                <a href="https://www.linkedin.com/in/daniela-bodirca-724040187/" target="_blank">
+                    <img th:src="@{/images/DanielaBodirca.png}" alt="Daniela Bodircă" class="founder-photo">
+                    <a class="linkedin-icon"></a>
+                </a>
+            </div>
+            <h3><a>Daniela Bodircă</a></h3>
+        </div>
+
+        <!-- Founder 3 -->
+        <div class="about-box founder-box">
+            <div class="founder-photo-wrapper">
+                <a href="https://www.linkedin.com/in/serban-toader-b8aa94a/" target="_blank">
+                    <img th:src="@{/images/SerbanToader.png}" alt="Șerban Toader" class="founder-photo">
+                    <a class="linkedin-icon"></a>
+                </a>
+            </div>
+            <h3><a>Șerban Toader</a></h3>
+        </div>
+
+    </div>
+
+    <p th:text="#{founders.description}">
+        Description text placeholder.
+    </p>
+</section>
+
+<!-- Purpose Section -->
+<section id="purpose" class="fade-in purpose-section">
+    <div class="purpose-header">
+        <img th:src="@{/images/flag.svg}" alt="Purpose" class="purpose-icon">
+        <h2 style="font-size:2rem; margin:0" th:text="#{purpose.title}">Our Purpose</h2>
+    </div>
+    <p th:text="#{purpose.description}">
+        Purpose description placeholder.
+    </p>
+</section>
+
+<!-- Fractional Executives Section -->
+<section id="fractional-executives" class="fade-in">
+    <h2 style="text-align: center"><strong th:text="#{fractional.title}">Understanding Fractional Executives</strong></h2>
+
+    <div class="about-grid">
+        <div class="about-box">
+            <h3 th:text="#{fractional.q1.title}">What is a Fractional Executive?</h3>
+            <p th:text="#{fractional.q1.text}"></p>
+        </div>
+
+        <div class="about-box">
+            <h3 th:text="#{fractional.q2.title}">Specialized Skills</h3>
+            <p th:text="#{fractional.q2.text}"></p>
+        </div>
+
+        <div class="about-box">
+            <h3 th:text="#{fractional.q3.title}">Who Benefits Most?</h3>
+            <p th:text="#{fractional.q3.text}"></p>
+        </div>
+    </div>
+</section>
+
+<div style="text-align:center; margin-top: 20px;">
+    <a th:href="@{/executives}" class="btn" th:text="#{button.meet.executives}">Meet the Executives</a>
+</div>
+
+<!-- Why Fraxen Section -->
+<section id="why-fraxen" class="fade-in">
+    <h2 style="text-align: center"><strong th:text="#{why.title}">Why Fraxen?</strong></h2>
+
+    <div class="about-grid">
+        <div class="about-box">
+            <h3 th:text="#{why.executives.title}"></h3>
+            <p th:text="#{why.executives.p1}"></p>
+            <p th:text="#{why.executives.p2}"></p>
+            <p th:text="#{why.executives.p3}"></p>
+            <p th:text="#{why.executives.p4}"></p>
+        </div>
+
+        <div class="about-box">
+            <h3 th:text="#{why.entrepreneurs.title}"></h3>
+            <p th:text="#{why.entrepreneurs.p1}"></p>
+            <p th:text="#{why.entrepreneurs.p2}"></p>
+        </div>
+    </div>
+</section>
+
+<!-- Values Section -->
+<section id="about" class="fade-in">
+    <h2 style="text-align: center"><strong th:text="#{values.title}">Our Values</strong></h2>
+
+    <div class="about-grid">
+        <div class="about-box">
+            <h2>
+                <img th:src="@{/images/handshake.svg}" alt="Excellence" class="icon">
+                <span th:text="#{values.excellence}"></span>
+            </h2>
+            <p th:text="#{values.excellence.text}"></p>
+        </div>
+
+        <div class="about-box">
+            <h2>
+                <img th:src="@{/images/podcast.svg}" alt="Common Sense" class="icon">
+                <span th:text="#{values.commonsense}"></span>
+            </h2>
+            <p th:text="#{values.commonsense.text}"></p>
+        </div>
+
+        <div class="about-box">
+            <h2>
+                <img th:src="@{/images/sparkles.svg}" alt="Curiosity" class="icon">
+                <span th:text="#{values.curiosity}"></span>
+            </h2>
+            <p th:text="#{values.curiosity.text}"></p>
+        </div>
+    </div>
+</section>
+
+<!-- Services Section -->
+<section id="services" class="fade-in purpose-section">
+    <div class="purpose-header">
+        <h2 style="font-size:1.5rem; margin:0"><strong th:text="#{services.title}">Services</strong></h2>
+    </div>
+    <p th:text="#{services.text}"></p>
+</section>
+
+<!-- Pricing Section -->
+<section id="pricing" class="fade-in">
+    <h2 style="text-align:center"><strong th:text="#{pricing.title}"></strong></h2>
+
+    <div class="about-grid">
+        <div class="about-box">
+            <h3 th:text="#{pricing.p1.title}"></h3>
+            <p th:text="#{pricing.p1.text}"></p>
+        </div>
+
+        <div class="about-box">
+            <h3 th:text="#{pricing.p2.title}"></h3>
+            <p th:text="#{pricing.p2.text}"></p>
+        </div>
+
+        <div class="about-box">
+            <h3 th:text="#{pricing.p3.title}"></h3>
+            <p th:text="#{pricing.p3.text}"></p>
+        </div>
+    </div>
+</section>
+
+<!-- Contact Section -->
+<section id="contact" class="fade-in">
+    <h2><strong th:text="#{contact.title}">Contact Us</strong></h2>
+    <p th:text="#{contact.text}"></p>
+
+    <div class="contact-buttons" style="margin-top: 20px; display: flex; gap: 15px; justify-content: center;">
+        <a id="emailButton" class="btn contact-btn">
+            <img th:src="@{/images/mail.svg}" alt="Email" style="width: 24px; height: 24px;">
+        </a>
+
+        <a href="https://www.linkedin.com/company/fraxen" class="btn contact-btn">
+            <img th:src="@{/images/linkedin.svg}" alt="LinkedIn" style="width: 24px; height: 24px;">
+        </a>
+    </div>
+</section>
+
+<!-- Future Options -->
+<section class="coming-soon fade-in">
+    <h2><strong th:text="#{future.title}">Future Options</strong></h2>
+    <ul>
+        <li>
+            <span th:text="#{future.option1}"></span>
+            <span class="tag" th:text="#{future.comingsoon}"></span>
+        </li>
+        <li>
+            <span th:text="#{future.option2}"></span>
+            <span class="tag" th:text="#{future.comingsoon}"></span>
+        </li>
+        <li>
+            <span th:text="#{future.option3}"></span>
+            <span class="tag" th:text="#{future.comingsoon}"></span>
+        </li>
+    </ul>
+</section>
+
+<div th:replace="~{fragments/footer :: footer}"></div>
+
+<script th:src="@{/script.js}"></script>
+
+</body>
+</html>

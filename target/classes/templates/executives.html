@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title th:text="#{executives.title}">Fraxen - Meet the Executives</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" th:href="@{/styles.css}">
+    <link rel="stylesheet" th:href="@{/executives.css}">
+    <link rel="stylesheet" th:href="@{/contact.css}">
+
+    <!-- Favicon -->
+    <link rel="icon" th:href="@{/images/logo.jpeg}" type="image/x-icon">
+</head>
+<body>
+
+<!-- HEADER FRAGMENT -->
+<div th:replace="fragments/header :: header"></div>
+
+<!-- MAIN GRID (empty; will be filled by JS) -->
+<main class="executives-grid">
+
+</main>
+
+<!-- FOOTER FRAGMENT -->
+<div th:replace="fragments/footer :: footer"></div>
+
+<!-- JS -->
+<script th:src="@{/script.js}"></script>
+<script th:src="@{/executives.js}"></script>
+
+</body>
+</html>

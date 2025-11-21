@@ -1,8 +1,4 @@
 document.addEventListener("DOMContentLoaded", () => {
-    // Load fragments first
-    loadFragment("header.html", "#header", initHeader);
-    loadFragment("footer.html", "#footer");
-
     // Fade-in animations
     const faders = document.querySelectorAll('.fade-in');
     const appearOptions = { threshold: 0.2 };
@@ -15,31 +11,41 @@ document.addEventListener("DOMContentLoaded", () => {
     }, appearOptions);
 
     faders.forEach(fader => appearOnScroll.observe(fader));
-    // --- Simple tracking call ---
+
+    // Simple tracking call
     fetch("/track")
         .catch(err => console.log("Tracker failed:", err))
         .then(() => console.log("Tracker success"));
 
+    // Language toggle
+    const langBtn = document.getElementById('language-toggle');
+    const urlParams = new URLSearchParams(window.location.search);
+    const currentLang = urlParams.get('lang') || 'en';
+    console.log(currentLang);
+    langBtn.textContent = currentLang.toUpperCase();
+    langBtn.addEventListener('click', () => {
+        let newLang = langBtn.textContent.toUpperCase() === 'EN' ? 'ro' : 'en';
+        langBtn.textContent = newLang.toUpperCase();
+        const url = new URL(window.location.href);
+        url.searchParams.set('lang', newLang);
+        window.location.href = url.toString();
+    });
+
+    // Initialize header logic (menu, theme, modal)
+    initHeader();
 });
 
-function loadFragment(file, target, callback) {
-    fetch(file)
-        .then(response => response.text())
-        .then(data => {
-            document.querySelector(target).innerHTML = data;
-            if (callback) callback(); // Run callback after fragment loads
-        });
-}
-
-// ---------------- Header Init (Theme + Menu + Contact Modal) ---------------- //
+// ---------------- Header Init (Menu, Theme, Contact Modal) ---------------- //
 
 function initHeader() {
+
     initThemeToggle();
 
     const menuBtn = document.querySelector(".menu-toggle");
     const nav = document.querySelector("header nav");
 
     if (menuBtn && nav) {
+
         // Toggle menu on button click
         menuBtn.addEventListener("click", () => {
             nav.classList.toggle("active");
@@ -54,8 +60,9 @@ function initHeader() {
             }
         });
     }
+    console.log("test");
 
-    // ---- Contact Modal Logic ----
+    // Contact modal logic
     const requestExecutiveButton = document.getElementById('requestExecutiveButton');
     const contactButton = document.getElementById('contactButton');
     const mailModal = document.getElementById('mailModal');
@@ -67,55 +74,50 @@ function initHeader() {
 
     if (!contactButton || !mailModal) return;
 
-    // Show modal
+    // Open modal
     contactButton.addEventListener('click', () => {
         currentTrigger = 'contact';
         mailModal.style.display = 'flex';
     });
 
-    // Also show modal when clicking request executive button
-    requestExecutiveButton.addEventListener('click', () => {
+    requestExecutiveButton?.addEventListener('click', () => {
         currentTrigger = 'requestExecutive';
+        console.log("algce");
         mailModal.style.display = 'flex';
-    })
+    });
 
-
-    // Also show modal when clicking email button
     emailButton?.addEventListener('click', (e) => {
-        e.preventDefault(); // Prevent default anchor action
+        e.preventDefault();
         currentTrigger = 'contact';
         mailModal.style.display = 'flex';
     });
 
-    // Hide modal on No
+    // Modal buttons
     noButton?.addEventListener('click', () => {
-        currentTrigger=null;
+        currentTrigger = null;
         mailModal.style.display = 'none';
     });
 
-    // Redirect to mail app on Yes
     yesButton?.addEventListener('click', () => {
-        let subject,body;
+        let subject, body;
 
         if (currentTrigger === 'requestExecutive') {
-            subject = encodeURIComponent("Executive Request - Fraxen Website");
+            subject = encodeURIComponent("Sent via Fraxen Website - Executive Request");
             body = encodeURIComponent("Hello Fraxen team,\n\nI would like to request an executive consultation.\n\nMy phone number:\n");
         } else {
-            subject = encodeURIComponent("Sent via Fraxen Website");
-            body = encodeURIComponent("Hello Fraxen team,\n\nI would like to get in touch with you.\n\nBest regards,\n");
+            subject = encodeURIComponent("Sent via Fraxen Website - Contact");
+            body = encodeURIComponent("Hello Fraxen team,\n\nI would like to get in touch with you.\n\nMy phone number:\n");
         }
 
         window.location.href = `mailto:admin@fraxen.eu?subject=${subject}&body=${body}`;
         mailModal.style.display = 'none';
     });
 
-    // Close modal if clicking outside
+    // Close modal when clicking outside
     window.addEventListener('click', (e) => {
         if (e.target === mailModal) mailModal.style.display = 'none';
     });
-
 }
-
 
 
 // ---------------- Light/Dark Mode Toggle ---------------- //

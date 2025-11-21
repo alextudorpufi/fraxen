@@ -3,40 +3,39 @@ document.addEventListener('DOMContentLoaded', function () {
         .then(response => response.json())
         .then(executives => {
             const grid = document.querySelector('.executives-grid');
-            grid.innerHTML = ''; // Clear existing cards
+            grid.innerHTML = ''; // Clear loading message
 
             executives.forEach(exec => {
-                const genderLower = (exec.gender || '').toLowerCase(); // sanitize to lowercase
-                const genderDisplay = genderLower.charAt(0).toUpperCase() + genderLower.slice(1); // Capitalize first letter
+                const genderLower = (exec.gender || '').toLowerCase();
+                const genderDisplay = genderLower.charAt(0).toUpperCase() + genderLower.slice(1);
 
                 const card = document.createElement('div');
                 card.className = 'executive-card';
-                card.setAttribute('data-gender', genderLower); // always lowercase
+                card.setAttribute('data-gender', genderLower);
 
                 card.innerHTML = `
                     <div class="exec-avatar">
-                        <img src="images/user.svg" alt="User" class="icon">
+                        <img src="/images/user.svg" alt="User" class="icon">
                     </div>
                     <div class="exec-details">
-                        <h2>${exec.title || ''}</h2>
-                        <br>
+                        <h2>${exec.title || ''}</h2><br>
                         <p><strong>Gender:</strong> ${genderDisplay}</p>
                         <p><strong>Experience:</strong> ${exec.experience || ''}</p>
                         <p><strong>Sector Focus:</strong> ${exec.sectorFocus || ''}</p>
                         <p><strong>Location:</strong> ${exec.location || ''}</p>
                         ${exec.highlights?.map(h => {
                     const formattedDetails = (h.details || '')
-                        .replace(/\\n/g, '\n')
+                        .replace(/\n/g, '\n')
                         .split('\n')
                         .map(line => `→ ${line}`)
                         .join('<br>');
                     return `
-                        <div class="exec-highlight">
-                            <p><strong>${h.positionTitle || ''}</strong> – ${h.companyDescription || ''}<br>
-                            ${formattedDetails}</p><br>
-                        </div>
-                    `;
-                                }).join('')}
+                                <div class="exec-highlight">
+                                    <p><strong>${h.positionTitle || ''}</strong> – ${h.companyDescription || ''}<br>
+                                    ${formattedDetails}</p><br>
+                                </div>
+                            `;
+                }).join('')}
                         ${exec.strengths?.length ? `
                             <div class="exec-highlight">
                                 <p><strong>Core Strengths:</strong><br>

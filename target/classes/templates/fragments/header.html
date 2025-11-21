@@ -1,0 +1,28 @@
+<header th:fragment="header">
+    <div class="logo">Fraxen</div>
+    <button class="menu-toggle">☰</button>
+
+    <nav>
+        <button id="theme-toggle" class="theme-toggle"></button>
+
+        <!-- Use Thymeleaf URLs -->
+        <a id="language-toggle" class="language-toggle" style="cursor:pointer"> EN </a>
+        <a id="requestExecutiveButton" style="cursor:pointer">Request an executive</a>
+        <a th:href="@{/#fractional-executives}">About Us</a>
+        <a th:href="@{/#services}">Services</a>
+        <a th:href="@{/#contact}" id="contactButton">Contact</a>
+        <a th:href="@{/executives}">Executives</a>
+    </nav>
+
+    <!-- Modal -->
+    <div id="mailModal" class="modal">
+        <div class="modal-content">
+            <p>Would you like to send a mail to Fraxen?</p>
+            <div class="modal-actions">
+                <button id="yesButton">Yes</button>
+                <button id="noButton">No</button>
+            </div>
+        </div>
+    </div>
+
+</header>
