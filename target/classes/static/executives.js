@@ -25,10 +25,12 @@ document.addEventListener('DOMContentLoaded', function () {
                         <p><strong>Location:</strong> ${exec.location || ''}</p>
                         ${exec.highlights?.map(h => {
                     const formattedDetails = (h.details || '')
-                        .replace(/\n/g, '\n')
-                        .split('\n')
+                        .replace(/\\n/g, '\n')  // convert literal "\n" to real newline
+                        .split('\n')             // now split on real newline
                         .map(line => `→ ${line}`)
                         .join('<br>');
+
+
                     return `
                                 <div class="exec-highlight">
                                     <p><strong>${h.positionTitle || ''}</strong> – ${h.companyDescription || ''}<br>
