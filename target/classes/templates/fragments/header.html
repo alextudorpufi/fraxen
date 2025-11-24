@@ -5,24 +5,26 @@
     <nav>
         <button id="theme-toggle" class="theme-toggle"></button>
 
-        <!-- Use Thymeleaf URLs -->
-        <a id="language-toggle" class="language-toggle" style="cursor:pointer"> EN </a>
-        <a id="requestExecutiveButton" style="cursor:pointer">Request an executive</a>
-        <a th:href="@{/#fractional-executives}">About Us</a>
-        <a th:href="@{/#services}">Services</a>
-        <a th:href="@{/#contact}" id="contactButton">Contact</a>
-        <a th:href="@{/executives}">Executives</a>
+        <!-- Language toggle -->
+        <a id="language-toggle" class="language-toggle" style="cursor:pointer"
+           th:text="#{header.languageToggle}">EN</a>
+
+        <!-- Navigation links -->
+        <a id="requestExecutiveButton" style="cursor:pointer" th:text="#{header.requestExecutive}">Request an executive</a>
+        <a th:href="@{/#fractional-executives}" th:text="#{header.aboutUs}">About Us</a>
+        <a th:href="@{/#services}" th:text="#{header.services}">Services</a>
+        <a th:href="@{/#contact}" id="contactButton" th:text="#{header.contact}">Contact</a>
+        <a th:href="@{/executives}" th:text="#{header.executives}">Executives</a>
     </nav>
 
     <!-- Modal -->
     <div id="mailModal" class="modal">
         <div class="modal-content">
-            <p>Would you like to send a mail to Fraxen?</p>
+            <p th:text="#{header.modalText}">Would you like to send a mail to Fraxen?</p>
             <div class="modal-actions">
-                <button id="yesButton">Yes</button>
-                <button id="noButton">No</button>
+                <button id="yesButton" th:text="#{header.modalYes}">Yes</button>
+                <button id="noButton" th:text="#{header.modalNo}">No</button>
             </div>
         </div>
     </div>
-<!--Push test-->
 </header>
