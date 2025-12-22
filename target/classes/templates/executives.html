@@ -7,6 +7,7 @@
     <title th:text="#{executives.title}">Fraxen - Meet the Executives</title>
 
     <!-- CSS -->
+    <link rel="stylesheet" th:href="@{/snowfall.css}">
     <link rel="stylesheet" th:href="@{/styles.css}">
     <link rel="stylesheet" th:href="@{/executives.css}">
     <link rel="stylesheet" th:href="@{/contact.css}">
@@ -15,6 +16,8 @@
     <link rel="icon" th:href="@{/images/logo.jpeg}" type="image/x-icon">
 </head>
 <body>
+<!--Christmas update:-->
+<canvas id="snowCanvas"></canvas>
 
 <!-- HEADER FRAGMENT -->
 <div th:replace="fragments/header :: header"></div>
@@ -30,6 +33,6 @@
 <!-- JS -->
 <script th:src="@{/script.js}"></script>
 <script th:src="@{/executives.js}"></script>
-
+<script th:src="@{/snowfall.js}"></script>
 </body>
 </html>
