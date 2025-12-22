@@ -510,7 +510,7 @@ footer a:hover {
         width: 100%;
         height: auto;
         aspect-ratio: 16/9;   /* keep proportions */
-        background: url('images/logo_fullbackgroundless.png') center/110% no-repeat;
+        background: url('images/christmas_fulllogo_nobg.png') center/110% no-repeat;
         background-size: contain;
     }
 
