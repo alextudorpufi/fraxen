@@ -13,3 +13,4 @@ body {
     z-index: -1; /* Puts the snow behind your content */
     pointer-events: none; /* Allows you to click/scroll through the snow */
 }
+

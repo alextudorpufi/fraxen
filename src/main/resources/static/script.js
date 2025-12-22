@@ -30,6 +30,8 @@ document.addEventListener("DOMContentLoaded", () => {
         url.searchParams.set('lang', newLang);
         window.location.href = url.toString();
     });
+    // Initialize notification (Add this line)
+    initNotification();
 
     // Initialize header logic (menu, theme, modal)
     initHeader();
@@ -117,6 +119,39 @@ function initHeader() {
     window.addEventListener('click', (e) => {
         if (e.target === mailModal) mailModal.style.display = 'none';
     });
+
+}
+
+// For christmas
+function initNotification() {
+    const notification = document.getElementById('christmasModal');
+    const body = document.body;
+
+    // 1. Check if the user has already seen this during this season
+    const hasSeenNotification = sessionStorage.getItem('christmas_notified');
+
+    if (notification && !hasSeenNotification) {
+        // Lock scroll and show modal
+        body.style.overflow = 'hidden';
+        notification.style.display = 'flex';
+
+        setTimeout(() => {
+            notification.classList.add('notification-active');
+        }, 10);
+
+        // 2. Set the flag in localStorage so it won't show again
+        sessionStorage.setItem('christmas_notified', 'true');
+
+        setTimeout(() => {
+            notification.classList.add('notification-fade');
+
+            setTimeout(() => {
+                notification.style.display = 'none';
+                notification.classList.remove('notification-active', 'notification-fade');
+                body.style.overflow = '';
+            }, 800);
+        }, 4000);
+    }
 }
 
 
