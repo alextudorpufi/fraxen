@@ -89,7 +89,7 @@ nav a:hover {
     text-align: center;
     padding: 0 20px;
     background: linear-gradient(rgba(26, 17, 36, 0.0), rgba(26, 17, 36, 0.0)),
-    url('images/christmas_logo_nobg.png') center/80% no-repeat;
+    url('images/logo_backgroundless.png') center/80% no-repeat;
     background-position: center center;
     flex-direction: column;
 }
@@ -488,7 +488,7 @@ footer a:hover {
         display: block;
         width: 100%;
         height: 40vh; /* adjust to look good */
-        background: url('images/christmas_fulllogo_nobg.png') center/90% no-repeat;
+        background: url('images/logo_fullbackgroundless.png') center/90% no-repeat;
         background-size: contain;
     }
 
@@ -517,7 +517,7 @@ footer a:hover {
         width: 100%;
         height: auto;
         aspect-ratio: 16/9;   /* keep proportions */
-        background: url('images/christmas_fulllogo_nobg.png') center/110% no-repeat;
+        background: url('images/logo_fullbackgroundless.png') center/110% no-repeat;
         background-size: contain;
     }
 
