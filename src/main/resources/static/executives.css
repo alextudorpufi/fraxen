@@ -8,10 +8,12 @@
     grid-template-columns: repeat(2, 1fr); /* always 2 columns */
     gap: 2rem;
     padding: 2rem;
+    justify-items: center;
 }
 
 /* Card styling */
 .executive-card {
+    width: 100%;
     max-width: 700px;
     background: var(--card-bg);
     color: var(--text-color);
@@ -102,9 +104,6 @@ body:not(.dark-mode) .icon {
 @media (max-width: 1400px) {
     .executives-grid {
         grid-template-columns: 1fr; /* switch to 1 column */
-        display: flex;
-        flex-direction: column;
-        align-items: center;
     }
     .executive-card {
         flex-direction: column;
