@@ -1,9 +1,24 @@
 document.addEventListener('DOMContentLoaded', function () {
+    const grid = document.querySelector('.executives-grid');
+
     fetch('/api/executives')
-        .then(response => response.json())
+        .then(response => {
+            if (!response.ok) {
+                throw new Error(`Request failed with status ${response.status}`);
+            }
+            return response.json();
+        })
         .then(executives => {
-            const grid = document.querySelector('.executives-grid');
             grid.innerHTML = ''; // Clear loading message
+
+            if (!executives.length) {
+                grid.innerHTML = `
+                    <div class="executives-empty">
+                        <p>No executives are available yet.</p>
+                    </div>
+                `;
+                return;
+            }
 
             executives.forEach(exec => {
                 const genderLower = (exec.gender || '').toLowerCase();
@@ -51,5 +66,10 @@ document.addEventListener('DOMContentLoaded', function () {
         })
         .catch(err => {
             console.error('Failed to fetch executives:', err);
+            grid.innerHTML = `
+                <div class="executives-error">
+                    <p>Executives could not be loaded right now.</p>
+                </div>
+            `;
         });
 });

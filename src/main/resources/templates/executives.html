@@ -3,6 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Meet Fraxen fractional executives with experience across leadership, operations, finance, HR, marketing, and business growth.">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://fraxen.eu/executives">
+
+    <meta property="og:title" content="Fraxen - Meet the Executives">
+    <meta property="og:description" content="Explore experienced fractional executives available through the Fraxen network.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://fraxen.eu/executives">
+    <meta property="og:image" th:content="@{/images/logo.jpeg}">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Fraxen - Meet the Executives">
+    <meta name="twitter:description" content="Explore experienced fractional executives available through the Fraxen network.">
+    <meta name="twitter:image" th:content="@{/images/logo.jpeg}">
 
     <title th:text="#{executives.title}">Fraxen - Meet the Executives</title>
 
@@ -24,7 +38,10 @@
 
 <!-- MAIN GRID (empty; will be filled by JS) -->
 <main class="executives-grid">
-
+    <div class="executives-loading" role="status" aria-live="polite">
+        <div class="loading-spinner" aria-hidden="true"></div>
+        <p>Loading executives...</p>
+    </div>
 </main>
 
 <!-- FOOTER FRAGMENT -->

@@ -7,14 +7,51 @@
     display: grid;
     grid-template-columns: repeat(2, 1fr); /* always 2 columns */
     gap: 2rem;
-    padding: 2rem;
+    padding: 2rem clamp(1.25rem, 4vw, 3rem);
     justify-items: center;
+}
+
+.executives-loading,
+.executives-error,
+.executives-empty {
+    grid-column: 1 / -1;
+    min-height: 45vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    text-align: center;
+    color: var(--text-color);
+}
+
+.executives-loading p,
+.executives-error p,
+.executives-empty p {
+    margin: 0;
+    font-size: 1rem;
+}
+
+.loading-spinner {
+    width: 56px;
+    height: 56px;
+    border: 4px solid rgba(128, 128, 128, 0.25);
+    border-top-color: var(--accent-color);
+    border-radius: 50%;
+    animation: spin 0.9s linear infinite;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
 }
 
 /* Card styling */
 .executive-card {
     width: 100%;
     max-width: 700px;
+    box-sizing: border-box;
     background: var(--card-bg);
     color: var(--text-color);
     border-radius: 12px;
@@ -104,6 +141,7 @@ body:not(.dark-mode) .icon {
 @media (max-width: 1400px) {
     .executives-grid {
         grid-template-columns: 1fr; /* switch to 1 column */
+        padding-inline: clamp(1.25rem, 5vw, 4rem);
     }
     .executive-card {
         flex-direction: column;
