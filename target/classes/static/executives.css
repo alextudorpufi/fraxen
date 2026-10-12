@@ -5,10 +5,14 @@
 /* Grid layout for executive cards */
 .executives-grid {
     display: grid;
-    grid-template-columns: repeat(2, 1fr); /* always 2 columns */
+    grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 2rem;
     padding: 2rem clamp(1.25rem, 4vw, 3rem);
     justify-items: center;
+    width: 100%;
+    max-width: 1496px; /* two 700px cards, gap, and horizontal padding */
+    box-sizing: border-box;
+    margin-inline: auto;
 }
 
 .executives-loading,
@@ -85,7 +89,8 @@
 .exec-details {
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
+    min-width: 0;
 }
 .exec-details h2 {
     text-align: center;
